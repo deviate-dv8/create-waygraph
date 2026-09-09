@@ -1,0 +1,20 @@
+{
+  "name": "create-waygraph",
+  "version": "0.0.1",
+  "description": "Scaffold a new waygraph project - package.json, tsconfig, playwright.config, and one working example flow.",
+  "type": "module",
+  "bin": {
+    "create-waygraph": "./bin/create-waygraph.js"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deviate-dv8/create-waygraph.git"
+  }
+}
