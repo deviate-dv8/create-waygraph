@@ -4,7 +4,7 @@
   "description": "Scaffold a new waygraph project - package.json, tsconfig, playwright.config, and one working example flow.",
   "type": "module",
   "bin": {
-    "create-waygraph": "./bin/create-waygraph.js"
+    "create-waygraph": "bin/create-waygraph.js"
   },
   "files": [
     "bin",
