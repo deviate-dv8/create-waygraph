@@ -1,7 +1,12 @@
 # create-waygraph
 
-Scaffolds a new [waygraph](https://github.com/deviate-dv8/waygraph) project - one fixed
-shape, no prompts, no template picker.
+Scaffolds a new [waygraph](https://github.com/deviate-dv8/waygraph) **offline** project -
+one fixed shape, no prompts, no template picker.
+
+This is the scaffold command linked from
+[waygraph GitHub Pages](https://deviate-dv8.github.io/waygraph/) (`npx create-waygraph`).
+Same template as `npx waygraph init` (waygraph >= 0.7.5). For a live saucedemo walkthrough
+without creating a folder in your cwd, use `npx waygraph try demo` instead.
 
 ```bash
 npx create-waygraph my-project

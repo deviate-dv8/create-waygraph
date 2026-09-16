@@ -27,15 +27,19 @@ fs.cpSync(templatesDir, targetDir, { recursive: true });
 fs.renameSync(path.join(targetDir, "gitignore"), path.join(targetDir, ".gitignore"));
 
 const packageJsonPath = path.join(targetDir, "package.json");
-const packageJson = fs.readFileSync(packageJsonPath, "utf8").replace("__PROJECT_NAME__", projectName);
+const packageJson = fs.readFileSync(packageJsonPath, "utf8").replaceAll("__PROJECT_NAME__", path.basename(targetDir));
 fs.writeFileSync(packageJsonPath, packageJson);
 
-console.log(`Scaffolded ${projectName}/`);
+console.log(`Scaffolded ${path.basename(targetDir)}/`);
 console.log("");
 console.log(`  cd ${projectName}`);
 console.log("  npm install");
 console.log("  npx playwright install chromium");
 console.log("  npm test");
-console.log("  npx waygraph check .   # nav + orphan Blocks");
+console.log("  npx waygraph list");
+console.log("  npx waygraph check");
+console.log("  npx waygraph auto              # headed panel");
+console.log("  npx waygraph demo src/flows/example.flow.ts");
 console.log("");
-console.log("(Prefer npx waygraph init when waygraph >= 0.7.5 - same scaffold, built into the CLI.)");
+console.log("(Same offline scaffold as: npx waygraph init <name> - waygraph >= 0.10.6.)");
+console.log("(Live saucedemo: npx waygraph try auto | try demo - temp dir, not a scaffold.)");
