@@ -32,3 +32,16 @@ my-project/
 Ships as its own package rather than a `waygraph init` subcommand, so consuming `waygraph`
 at runtime never pulls in scaffolding code - `npx create-waygraph` resolves and runs without
 adding anything to your own `node_modules`.
+
+## Consumer layout (App Router projects)
+
+The minimal scaffold above is intentionally tiny (one block, no route tree). When the target
+app has real Next.js routes, **block folders mirror `app/` page routes**:
+
+- URL `/` -> nav at namespace root (`zsign-web/` or `pia-web/`), not `landing/` or `root/`
+- Route groups `(auth)` / `(app)` vanish from folder names
+- Folders with no `page.tsx` are grouping only - no NAV.md, no nav block
+- Sidebar / layout chrome -> `shared/chrome/`, not a parallel `shell/nav/*` family
+
+Full contract: `WAYGRAPH-CONSUMER-CONVENTION.md` in your mesh
+(`.sm/seats/_shared/` on zsign/pia). Engine API: package `waygraph` README + WAYGRAPH-HANDOUT.

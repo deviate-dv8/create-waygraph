@@ -7,10 +7,17 @@
     "typecheck": "tsc --noEmit",
     "test": "playwright test",
     "flows": "waygraph list .",
-    "nav": "waygraph nav ."
+    "check": "waygraph check .",
+    "auto": "waygraph auto .",
+    "demo": "waygraph demo exampleFlow .",
+    "demo:autoplay": "waygraph demo exampleFlow . --autoplay",
+    "demo:step": "waygraph demo exampleFlow . --step --no-autoplay"
+  },
+  "waygraph": {
+    "baseUrl": "https://example.com"
   },
   "dependencies": {
-    "waygraph": "^0.1.0"
+    "waygraph": "^0.7.5"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

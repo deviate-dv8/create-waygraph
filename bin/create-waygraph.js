@@ -36,3 +36,6 @@ console.log(`  cd ${projectName}`);
 console.log("  npm install");
 console.log("  npx playwright install chromium");
 console.log("  npm test");
+console.log("  npx waygraph check .   # nav + orphan Blocks");
+console.log("");
+console.log("(Prefer npx waygraph init when waygraph >= 0.7.5 - same scaffold, built into the CLI.)");
