@@ -1,6 +1,6 @@
 {
   "name": "create-waygraph",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Scaffold a new waygraph project - package.json, tsconfig, playwright.config, and one working example flow.",
   "license": "MIT",
   "type": "module",
