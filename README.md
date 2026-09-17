@@ -5,8 +5,10 @@ one fixed shape, no prompts, no template picker.
 
 This is the scaffold command linked from
 [waygraph GitHub Pages](https://deviate-dv8.github.io/waygraph/) (`npx create-waygraph`).
-Same template as `npx waygraph init` (waygraph >= 0.7.5). For a live saucedemo walkthrough
+Same template as `npx waygraph init` (waygraph >= 0.12.6). For a live saucedemo walkthrough
 without creating a folder in your cwd, use `npx waygraph try demo` instead.
+
+**Scaffold tree (authoritative):** https://deviate-dv8.github.io/waygraph/scaffold.html
 
 ```bash
 npx create-waygraph my-project
@@ -14,39 +16,39 @@ cd my-project
 npm install
 npx playwright install chromium
 npm test
+npm run demo
 ```
 
-Generates:
+Generates (0.12+):
 
-```
+```text
 my-project/
-  package.json          waygraph + @playwright/test
-  tsconfig.json
-  playwright.config.ts
-  .gitignore
+  package.json
+  STRUCTURE.md
   src/
-    blocks/load-page.block.ts   one real Block (act/resolve/verify)
-    flows/example.flow.ts       Engine.defineFlow([start, LoadPageBlock, end])
-  tests/
-    example.spec.ts             runs the flow, asserts the terminal Checkpoint
+    blocks/
+      SITE-MAP.md
+      demo-web/                    # synthetic "/" (data: URL)
+        NAV.md
+        nav-home.block.ts
+        methods/
+          assert-hello.method.block.ts
+    states/demo.states.ts
+    flows/example.flow.ts          # withTitle + withHighlightFixtures
+  tests/example.spec.ts
 ```
 
-`npm test` goes green immediately, offline - the example Block navigates to a self-contained
-`data:` URL, not a live site, so scaffolding a project never depends on network access.
-
-Ships as its own package rather than a `waygraph init` subcommand, so consuming `waygraph`
-at runtime never pulls in scaffolding code - `npx create-waygraph` resolves and runs without
-adding anything to your own `node_modules`.
+`npm test` goes green offline - nav uses a `data:` URL. Stubs / fixtures / one YAP
+slide are already wired so `npm run demo` shows narration.
 
 ## Consumer layout (App Router projects)
 
-The minimal scaffold above is intentionally tiny (one block, no route tree). When the target
-app has real Next.js routes, **block folders mirror `app/` page routes**:
+When the target app has real Next.js routes, **block folders mirror `app/` page routes**:
 
 - URL `/` -> nav at namespace root (`zsign-web/` or `pia-web/`), not `landing/` or `root/`
 - Route groups `(auth)` / `(app)` vanish from folder names
 - Folders with no `page.tsx` are grouping only - no NAV.md, no nav block
 - Sidebar / layout chrome -> `shared/chrome/`, not a parallel `shell/nav/*` family
 
-Full contract: `WAYGRAPH-CONSUMER-CONVENTION.md` in your mesh
-(`.sm/seats/_shared/` on zsign/pia). Engine API: package `waygraph` README + WAYGRAPH-HANDOUT.
+Full contract: waygraph [Consumer layout](https://deviate-dv8.github.io/waygraph/consumer.html)
+and mesh handout `WAYGRAPH-CONSUMER-CONVENTION.md`.
